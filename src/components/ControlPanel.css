@@ -1,0 +1,120 @@
+.control-panel {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 228px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.control-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Divider ── */
+.cp-divider {
+  height: 1px;
+  background: var(--panel-border);
+  margin: 2px 0;
+}
+
+/* ── View Orientation ── */
+.cp-views {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cp-views-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cp-views-grid {
+  display: flex;
+  gap: 4px;
+}
+
+.cp-view-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.cp-view-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(85, 102, 238, 0.08);
+}
+
+/* ── Action Buttons ── */
+.cp-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cp-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 7px 6px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: background 0.12s, color 0.12s;
+  text-align: left;
+}
+
+.cp-action-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.cp-action-btn--muted {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.cp-action-btn--muted:hover {
+  color: var(--text-secondary);
+}
+
+/* ── Mobile: Bottom Sheet ── */
+@media (max-width: 600px) {
+  .control-panel {
+    right: 0;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    border-radius: var(--radius) var(--radius) 0 0;
+    max-height: 45vh;
+    padding: 14px 16px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+}
