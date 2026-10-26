@@ -5,22 +5,22 @@ import '../../i18n'
 
 describe('Landing', () => {
   it('renders the title', () => {
-    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} onResumeSession={() => {}} />)
+    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
     expect(screen.getByText('DicomDrift')).toBeInTheDocument()
   })
 
-  it('renders the drop zone', () => {
-    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} onResumeSession={() => {}} />)
-    expect(screen.getByText(/drop dicom folder/i)).toBeInTheDocument()
+  it('renders the folder picker', () => {
+    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
+    expect(screen.getByText(/select dicom folder/i)).toBeInTheDocument()
   })
 
   it('renders the privacy notice', () => {
-    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} onResumeSession={() => {}} />)
+    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
     expect(screen.getByText(/your data stays private/i)).toBeInTheDocument()
   })
 
   it('renders the load saved model button', () => {
-    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} onResumeSession={() => {}} />)
+    render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
     expect(screen.getByText(/load saved model/i)).toBeInTheDocument()
   })
 })
