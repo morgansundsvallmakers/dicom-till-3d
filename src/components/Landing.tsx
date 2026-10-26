@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import './Landing.css'
 
@@ -12,7 +12,6 @@ export function Landing({ onFilesSelected, onModelLoaded }: Props) {
   const { t: tc } = useTranslation('common')
   const folderInputRef = useRef<HTMLInputElement>(null)
   const modelInputRef = useRef<HTMLInputElement>(null)
-  const [isDragOver, setIsDragOver] = useState(false)
 
   const handleFiles = useCallback(
     (files: FileList | File[]) => {
@@ -34,26 +33,6 @@ export function Landing({ onFilesSelected, onModelLoaded }: Props) {
     [onFilesSelected, tc],
   )
 
-  const handleDrop = useCallback(
-    (e: React.DragEvent) => {
-      e.preventDefault()
-      setIsDragOver(false)
-      if (e.dataTransfer.files.length > 0) {
-        handleFiles(e.dataTransfer.files)
-      }
-    },
-    [handleFiles],
-  )
-
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragOver(true)
-  }, [])
-
-  const handleDragLeave = useCallback(() => {
-    setIsDragOver(false)
-  }, [])
-
   return (
     <div className="landing">
       <div className="landing-content">
@@ -63,10 +42,7 @@ export function Landing({ onFilesSelected, onModelLoaded }: Props) {
         </header>
 
         <div
-          className={`dropzone glass ${isDragOver ? 'dropzone--active' : ''}`}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
+          className="dropzone glass"
           onClick={() => folderInputRef.current?.click()}
         >
           <div className="dropzone-icon">

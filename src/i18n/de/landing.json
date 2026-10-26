@@ -1,8 +1,8 @@
 {
   "title": "DicomDrift",
   "subtitle": "Gleite durch deine CT- & MRT-Aufnahmen in 3D",
-  "dropzone": "DICOM-Ordner hier ablegen",
-  "dropzoneHint": "oder klicken, um einen Ordner auszuwählen",
+  "dropzone": "DICOM-Ordner auswählen",
+  "dropzoneHint": "Hier klicken, um einen Ordner auszuwählen",
   "selectFolder": "Ordner auswählen",
   "loadSaved": "Gespeichertes Modell laden",
   "privacyTitle": "Deine Daten bleiben privat",

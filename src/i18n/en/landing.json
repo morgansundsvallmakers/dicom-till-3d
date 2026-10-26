@@ -1,8 +1,8 @@
 {
   "title": "DicomDrift",
   "subtitle": "Drift through your CT & MRI scans in 3D",
-  "dropzone": "Drop DICOM folder here",
-  "dropzoneHint": "or click to select a folder",
+  "dropzone": "Select DICOM folder",
+  "dropzoneHint": "Click here to choose a folder",
   "selectFolder": "Select Folder",
   "loadSaved": "Load Saved Model",
   "privacyTitle": "Your data stays private",
