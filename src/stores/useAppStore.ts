@@ -54,13 +54,13 @@ interface AppState {
 }
 
 export const DEFAULT_LAYER_CONFIGS: LayerConfig[] = [
-  { id: 'bone', name: 'Bone', threshold: 200, color: '#d4c4a8', opacity: 1.0, resolution: 2, smoothing: 5, invertNormals: true, generating: false },
+  { id: 'bone', name: 'Ben', threshold: 200, color: '#d4c4a8', opacity: 1.0, resolution: 2, smoothing: 5, invertNormals: true, generating: false },
 ]
 
 export const PRESET_LAYERS: Record<string, Omit<LayerConfig, 'id' | 'generating'>> = {
-  bone: { name: 'Bone', threshold: 200, color: '#d4c4a8', opacity: 1.0, resolution: 2, smoothing: 5, invertNormals: true },
-  softTissue: { name: 'Soft Tissue', threshold: -100, color: '#c4988a', opacity: 0.35, resolution: 2, smoothing: 10, invertNormals: true },
-  skin: { name: 'Skin', threshold: -300, color: '#d4a89c', opacity: 0.15, resolution: 2, smoothing: 15, invertNormals: true },
+  bone: { name: 'Ben', threshold: 200, color: '#d4c4a8', opacity: 1.0, resolution: 2, smoothing: 5, invertNormals: true },
+  softTissue: { name: 'Mjukvävnad', threshold: -100, color: '#c4988a', opacity: 0.35, resolution: 2, smoothing: 10, invertNormals: true },
+  skin: { name: 'Hud', threshold: -300, color: '#d4a89c', opacity: 0.15, resolution: 2, smoothing: 15, invertNormals: true },
 }
 
 export const useAppStore = create<AppState>((set) => ({
