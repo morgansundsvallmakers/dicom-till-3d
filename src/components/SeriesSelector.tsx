@@ -24,7 +24,7 @@ export function SeriesSelector({ seriesList, onSelect, onCancel }: Props) {
             >
               <div className="series-info">
                 <span className="series-description">
-                  {series.seriesDescription || series.modality || 'Unknown'}
+                  {series.seriesDescription || series.modality || t('unknown', { ns: 'viewer' })}
                 </span>
                 <span className="series-meta">
                   {t('seriesSlices', { count: series.sliceCount })}

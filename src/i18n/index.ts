@@ -7,6 +7,11 @@ import enLanding from './en/landing.json'
 import enViewer from './en/viewer.json'
 import enProcessing from './en/processing.json'
 
+import svCommon from './sv/common.json'
+import svLanding from './sv/landing.json'
+import svViewer from './sv/viewer.json'
+import svProcessing from './sv/processing.json'
+
 import deCommon from './de/common.json'
 import deLanding from './de/landing.json'
 import deViewer from './de/viewer.json'
@@ -17,6 +22,12 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
+      sv: {
+        common: svCommon,
+        landing: svLanding,
+        viewer: svViewer,
+        processing: svProcessing,
+      },
       en: {
         common: enCommon,
         landing: enLanding,
@@ -30,15 +41,16 @@ i18n
         processing: deProcessing,
       },
     },
-    fallbackLng: 'en',
+    lng: 'sv',
+    fallbackLng: 'sv',
     defaultNS: 'common',
     ns: ['common', 'landing', 'viewer', 'processing'],
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
+      order: [],
+      caches: [],
     },
   })
 

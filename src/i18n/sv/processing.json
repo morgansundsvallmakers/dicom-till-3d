@@ -1,0 +1,14 @@
+{
+  "title": "Bearbetar",
+  "parsingDicom": "Läser DICOM-filer ...",
+  "parsingDicomProgress": "Läser DICOM-filer ({{current}}/{{total}}) ...",
+  "buildingVolume": "Bygger volym ...",
+  "selectingSeries": "Välj bildserie",
+  "generatingMesh": "Skapar 3D-yta ...",
+  "smoothingMesh": "Jämnar ut 3D-ytan ...",
+  "almostDone": "Nästan klart ...",
+  "seriesSelection": "Flera bildserier hittades",
+  "seriesSlices": "{{count}} snitt",
+  "seriesSelect": "Välj",
+  "cancel": "Avbryt"
+}

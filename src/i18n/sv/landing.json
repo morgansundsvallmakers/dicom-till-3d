@@ -1,0 +1,16 @@
+{
+  "title": "DICOM till 3D",
+  "subtitle": "Skapa 3D-modeller från DICOM-bilder",
+  "dropzone": "Välj DICOM-mapp",
+  "dropzoneHint": "Klicka här för att välja en mapp",
+  "selectFolder": "Välj mapp",
+  "loadSaved": "Öppna sparad modell",
+  "privacyTitle": "Dina data stannar lokalt",
+  "privacyText": "Bearbetningen sker lokalt i webbläsaren. DICOM-filerna skickas inte till någon server.",
+  "supportedFormats": "Stöder vanliga DICOM-filer från DT- och MR-undersökningar.",
+  "howItWorks": "Så fungerar det",
+  "step1": "Välj din DICOM-mapp",
+  "step2": "Välj bildserie och inställningar",
+  "step3": "Utforska 3D-modellen",
+  "resumeSession": "Återuppta föregående session"
+}

@@ -113,7 +113,7 @@ function LayerCard({ config, hasGenerated, hasVolume, onRegenerate, onRemove }: 
           <button
             className={`lc-eye ${!isVisible ? 'lc-eye--hidden' : ''}`}
             onClick={() => updateVisibility(config.id, !isVisible)}
-            title={isVisible ? 'Hide' : 'Show'}
+            title={isVisible ? t('hide') : t('show')}
           >
             <EyeIcon open={isVisible} />
           </button>
@@ -122,7 +122,7 @@ function LayerCard({ config, hasGenerated, hasVolume, onRegenerate, onRemove }: 
         <button
           className="lc-remove"
           onClick={() => onRemove(config.id)}
-          title="Remove layer"
+          title={t('removeLayer')}
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -232,7 +232,7 @@ function LayerCard({ config, hasGenerated, hasVolume, onRegenerate, onRemove }: 
               checked={config.invertNormals}
               onChange={(e) => updateConfig(config.id, { invertNormals: e.target.checked })}
             />
-            <span className="lc-toggle-label">Invert normals</span>
+            <span className="lc-toggle-label">{t('invertNormals')}</span>
           </label>
 
           <button
@@ -247,7 +247,7 @@ function LayerCard({ config, hasGenerated, hasVolume, onRegenerate, onRemove }: 
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="23 4 23 10 17 10" /><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
                 </svg>
-                {hasGenerated ? t('reprocess') : 'Generate'}
+                {hasGenerated ? t('reprocess') : t('generate')}
               </>
             )}
           </button>
@@ -255,7 +255,7 @@ function LayerCard({ config, hasGenerated, hasVolume, onRegenerate, onRemove }: 
           )}
 
           {!hasVolume && hasGenerated && (
-            <p className="lc-hint">Load DICOM data to modify threshold and smoothing</p>
+            <p className="lc-hint">{t('loadDicomHint')}</p>
           )}
         </div>
       )}
@@ -336,7 +336,7 @@ export function LayerConfigurator() {
           <button
             className="lc-add-btn"
             onClick={() => setAddMenuOpen(!addMenuOpen)}
-            title="Add layer"
+            title={t('addLayer')}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />

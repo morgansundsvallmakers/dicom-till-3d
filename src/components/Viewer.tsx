@@ -49,7 +49,7 @@ export function Viewer({ onLoadNew }: Props) {
   return (
     <div className="viewer">
       <div className="viewer-topbar">
-        <span className="viewer-title">DicomDrift</span>
+        <span className="viewer-title">DICOM till 3D</span>
       </div>
 
       <ThreeCanvas onReady={onReady} />

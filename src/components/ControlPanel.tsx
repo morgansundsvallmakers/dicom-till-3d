@@ -22,7 +22,7 @@ export function ControlPanel({ onResetView, onSetView, onSave, onExportSTL, onSc
       <div className="cp-divider" />
 
       <div className="cp-views">
-        <span className="cp-views-label">{t('view', { defaultValue: 'View' })}</span>
+        <span className="cp-views-label">{t('view')}</span>
         <div className="cp-views-grid">
           {Object.entries(VIEW_ORIENTATIONS).map(([key, view]) => (
             <button

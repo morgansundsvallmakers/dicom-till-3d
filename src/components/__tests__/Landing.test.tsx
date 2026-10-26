@@ -6,21 +6,21 @@ import '../../i18n'
 describe('Landing', () => {
   it('renders the title', () => {
     render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
-    expect(screen.getByText('DicomDrift')).toBeInTheDocument()
+    expect(screen.getByText('DICOM till 3D')).toBeInTheDocument()
   })
 
   it('renders the folder picker', () => {
     render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
-    expect(screen.getByText(/select dicom folder/i)).toBeInTheDocument()
+    expect(screen.getByText(/välj dicom-mapp/i)).toBeInTheDocument()
   })
 
   it('renders the privacy notice', () => {
     render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
-    expect(screen.getByText(/your data stays private/i)).toBeInTheDocument()
+    expect(screen.getByText(/dina data stannar lokalt/i)).toBeInTheDocument()
   })
 
   it('renders the load saved model button', () => {
     render(<Landing onFilesSelected={() => {}} onModelLoaded={() => {}} />)
-    expect(screen.getByText(/load saved model/i)).toBeInTheDocument()
+    expect(screen.getByText(/öppna sparad modell/i)).toBeInTheDocument()
   })
 })

@@ -1,0 +1,14 @@
+{
+  "save": "Spara",
+  "load": "Ladda",
+  "reset": "Återställ",
+  "cancel": "Avbryt",
+  "settings": "Inställningar",
+  "close": "Stäng",
+  "error": "Fel",
+  "errorGeneric": "Något gick fel. Försök igen.",
+  "errorFileRead": "En eller flera filer kunde inte läsas.",
+  "errorNoDicom": "Inga giltiga DICOM-filer hittades.",
+  "errorNoSlices": "För få bildsnitt för att skapa en volym.",
+  "language": "Språk"
+}
