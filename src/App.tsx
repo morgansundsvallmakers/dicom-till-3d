@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useAppStore, DEFAULT_LAYER_CONFIGS } from './stores/useAppStore'
 import { parseFiles, assembleVolume, generateMesh, terminateWorkers } from './pipeline/pipeline'
 import { loadModel } from './io/loadModel'
-import { saveSession, loadSession, hasSession, clearSession } from './io/sessionCache'
+import { clearSession } from './io/sessionCache'
 import type { DicomSlice, SeriesInfo } from './types/dicom'
 import { Landing } from './components/Landing'
 import { ProcessingOverlay } from './components/ProcessingOverlay'
@@ -15,41 +15,14 @@ export default function App() {
   const phase = useAppStore((s) => s.phase)
   const setPhase = useAppStore((s) => s.setPhase)
   const setProgress = useAppStore((s) => s.setProgress)
-  const layers = useAppStore((s) => s.layers)
-  const layerConfigs = useAppStore((s) => s.layerConfigs)
 
   const [parsedSlices, setParsedSlices] = useState<DicomSlice[] | null>(null)
   const [seriesList, setSeriesList] = useState<SeriesInfo[] | null>(null)
   const [showSeriesSelector, setShowSeriesSelector] = useState(false)
-  const [cachedSessionInfo, setCachedSessionInfo] = useState<{ timestamp: number } | null>(null)
 
-  // Check for cached session on mount
+  // Remove any legacy automatically saved model on startup.
   useEffect(() => {
-    hasSession().then((info) => {
-      if (info.exists && info.timestamp) {
-        setCachedSessionInfo({ timestamp: info.timestamp })
-      }
-    }).catch(() => { /* IndexedDB unavailable */ })
-  }, [])
-
-  // Auto-save session when layers change (debounced)
-  useEffect(() => {
-    if (phase !== 'viewing' || Object.keys(layers).length === 0) return
-    const timer = setTimeout(() => {
-      saveSession(layers, layerConfigs).catch(() => {})
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [layers, layerConfigs, phase])
-
-  const handleResumeSession = useCallback(async () => {
-    const session = await loadSession()
-    if (session) {
-      useAppStore.getState().setLayers(session.layers)
-      useAppStore.getState().setLayerConfigs(session.layerConfigs)
-      setPhase('viewing')
-      setCachedSessionInfo(null)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    clearSession().catch((err) => console.warn('Could not clear legacy session:', err))
   }, [])
 
   const handleFiles = useCallback(
@@ -153,8 +126,6 @@ export default function App() {
         <Landing
           onFilesSelected={handleFiles}
           onModelLoaded={handleModelLoaded}
-          cachedSession={cachedSessionInfo}
-          onResumeSession={handleResumeSession}
         />
       )}
 
